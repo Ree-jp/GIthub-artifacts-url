@@ -1,2 +1,2 @@
-rootProject.name = "GithubArtifactsUrl"
+rootProject.name = "GIthubArtifactsUrl"
 
