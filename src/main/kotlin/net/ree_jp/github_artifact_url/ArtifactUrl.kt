@@ -6,14 +6,14 @@ import java.io.InputStreamReader
 import java.net.URL
 import java.util.*
 
-class ArtifactUrl(private val url: URL) {
+class ArtifactUrl(private val url: String) {
 
     fun getUrl(): URL {
         return getUrl("", "")
     }
 
     fun getUrl(user: String, token: String): URL {
-        val json = getList(url, "$user:$token".toByteArray())
+        val json = getList(URL("$url/actions/artifacts"), "$user:$token".toByteArray())
         val list = Gson().fromJson(json, GithubArtifactList::class.java)
         return URL(list.artifacts.first().archive_download_url)
     }
